@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class RootViewController;
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic)IBOutlet UIWindow *window;
+
+@property (nonatomic, strong, readonly) RootViewController *rootViewController;
+
+@property (strong, nonatomic) UINavigationController *navController;
+
++(AppDelegate*) getSharedInstance;
 
 @end

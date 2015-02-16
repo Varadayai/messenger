@@ -7,15 +7,32 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginVC.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    // Root view controller
+    _rootViewController = [[RootViewController alloc] init];
+    
+    // Window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    self.window.rootViewController = _rootViewController;
+    
+//    _tempVC = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+//    
+//   
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:_tempVC];
+//    self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -45,5 +62,14 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+//call to get App Delegate's shared instance
++(AppDelegate *) getSharedInstance
+{
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return appDelegate;
+}
+
 
 @end

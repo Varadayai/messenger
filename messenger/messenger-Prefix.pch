@@ -11,6 +11,33 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
+  #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
+  #import "AppDelegate.h"
+  #import "PZSideMenuViewController.h"
+  #import "RootViewController.h"
+
 #endif
+
+// Shortcuts
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define UPDATE_ACHIEVEMENT @"UpdateAchievement"
+
+#define APP_DELEGATE            (AppDelegate *)[[UIApplication sharedApplication] delegate]
+#define ROOT_VIEW_CONTROLLER    (RootViewController *)[APP_DELEGATE rootViewController]
+#define SIDE_MENU_CONTROLLER    ((PZSideMenuViewController *)[(RootViewController *)ROOT_VIEW_CONTROLLER sideMenuViewController])
+
+#define SharedAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#define UserDefaults [NSUserDefaults standardUserDefaults]
+#define SF(string, args...) [NSString stringWithFormat:string, args]
+#define SFI(intNumber) [NSString stringWithFormat:@"%ld", (long)intNumber]
+#define UIImageNamed(name) [UIImage imageNamed:name]
+#define UIImageBase64(base64String) [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:base64String]]];
+#define URL(link) [NSURL URLWithString:link]
+
+#define rgb(r, g, b)    [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1.0f]
+#define rgba(r, g, b, a)    [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+
+#define IS_IOS_7PLUS ( [ [ [ UIDevice currentDevice ] systemVersion ] floatValue ] >= 7.0 )
+#define IS_IPHONE_HD [[UIScreen mainScreen] bounds].size.height == 568
+#define IS_IPHONE_OLD [[UIScreen mainScreen] bounds].size.height == 480
