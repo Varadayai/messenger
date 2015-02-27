@@ -13,6 +13,7 @@
 #import "Notifications.h"
 #import "GroupsViewController.h"
 #import "ChatViewController.h"
+#import "Newsfeed.h"
 
 
 
@@ -128,6 +129,9 @@
             
         case 0:
             
+            newsfeed = [[NewsFeedViewController alloc] initWithNibName:@"NewsFeedViewController" bundle:nil];
+            [SIDE_MENU_CONTROLLER presentCenterViewController:newsfeed animated:YES];
+            
             break;
             
         case 1:
@@ -141,8 +145,8 @@
             
         case 2:
             
-            newsfeed = [[NewsFeedViewController alloc] initWithNibName:@"NewsFeedViewController" bundle:nil];
-            [SIDE_MENU_CONTROLLER presentCenterViewController:newsfeed animated:YES];
+            news = [[Newsfeed alloc] initWithNibName:@"Newsfeed" bundle:nil];
+            [SIDE_MENU_CONTROLLER presentCenterViewController:news animated:YES];
 
         
             break;

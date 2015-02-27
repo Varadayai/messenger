@@ -13,7 +13,6 @@
 @interface ChatViewController : AMBubbleTableViewController{
     
     UINavigationController *myNav;
-    IBOutlet UIView *overlay;
 }
 
 @end

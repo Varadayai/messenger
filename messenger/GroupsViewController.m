@@ -50,6 +50,14 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     // Do any additional setup after loading the view from its nib.
 }
 
+-(IBAction)buttonSlide:(id)sender{
+    
+
+    [SIDE_MENU_CONTROLLER openLeftSideViewControllerAnimated:YES completion:nil];
+   
+    
+}
+
 -(IBAction)logout:(id)sender{
     
     LoginVC *login = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil];

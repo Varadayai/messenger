@@ -46,7 +46,7 @@
 	// Dummy data
 	self.data = [[NSMutableArray alloc] initWithArray:@[
 														@{
-															@"text": @"He felt that his whole life was some kind of dream and he sometimes wondered whose it was and whether they were enjoying it.",
+															@"text": @"He felt that hey were enjoying it.",
 															@"date": [NSDate date],
 															@"type": @(AMBubbleCellReceived),
 															@"username": @"Stevie",
@@ -110,8 +110,6 @@
 //    self.tableView.opaque = NO;
 //    self.tableView.backgroundView = nil;
     
-    
-
 
 }
 

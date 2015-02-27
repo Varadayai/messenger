@@ -1,26 +1,26 @@
 //
-//  NewsFeedViewController.m
+//  Newsfeed.m
 //  messenger
 //
-//  Created by saurabh sindhu on 11/02/15.
+//  Created by saurabh sindhu on 26/02/15.
 //  Copyright (c) 2015 saurabh. All rights reserved.
 //
 
-#import "NewsFeedViewController.h"
-#import "CustomTableViewCell.h"
+#import "Newsfeed.h"
 #import "SWRevealTableViewCell.h"
 
 
-
-@interface NewsFeedViewController ()<SWRevealTableViewCellDelegate,SWRevealTableViewCellDataSource,UIActionSheetDelegate>
+@interface Newsfeed () <SWRevealTableViewCellDelegate,SWRevealTableViewCellDataSource,UIActionSheetDelegate>
 {
     NSIndexPath *_revealingCellIndexPath;
     NSInteger _sectionTitleRowCount;
 }
 
+
 @end
 
-@implementation NewsFeedViewController
+@implementation Newsfeed
+
 
 typedef enum
 {
@@ -32,60 +32,19 @@ typedef enum
 
 static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+     _sectionTitleRowCount = 4;
+
 }
 
 - (IBAction)openLeft
 {
     [SIDE_MENU_CONTROLLER openLeftSideViewControllerAnimated:YES completion:nil];
 }
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    _sectionTitleRowCount = 4;
-
-    [infoView setHidden:YES];
-
-
-}
-
--(IBAction)butt1:(id)sender{
-    
-    [infoView setHidden:YES];
-    
-    [line1 setHidden:NO];
-    
-    [line2 setHidden:YES];
-    
-    members.textColor = [UIColor colorWithRed:0/255.f green:123/255.f blue:168/255.f alpha:1];
-    
-    conv.textColor = [UIColor colorWithRed:224/255.f green:224/255.f blue:224/255.f alpha:1];
-
-    
-}
-
--(IBAction)butt2:(id)sender{
-    
-    [infoView setHidden:NO];
-    
-    [line1 setHidden:YES];
-    
-    [line2 setHidden:NO];
-    
-    conv.textColor = [UIColor colorWithRed:0/255.f green:123/255.f blue:168/255.f alpha:1];
-    
-    members.textColor = [UIColor colorWithRed:224/255.f green:224/255.f blue:224/255.f alpha:1];
-}
-
 
 #pragma mark - Table view data source
 
@@ -96,9 +55,9 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-   
-        return _sectionTitleRowCount;
-   
+    
+    return _sectionTitleRowCount;
+    
 }
 
 
@@ -120,9 +79,9 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     }
     
     // Configure the cell...
-  //  cell.detailTextLabel.text = @"Detail text";
+    //  cell.detailTextLabel.text = @"Detail text";
     
-//    cell.textLabel.text = [NSString stringWithFormat:@"My cell content %ld", (long)indexPath.section];
+    //    cell.textLabel.text = [NSString stringWithFormat:@"My cell content %ld", (long)indexPath.section];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 2, 250, 10)];
     
@@ -131,7 +90,7 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     
     titleLabel.textColor = [UIColor grayColor];
     [titleLabel setFont:[UIFont boldSystemFontOfSize:8]];
-   
+    
     titleLabel.layer.shouldRasterize=YES;
     
     titleLabel.text = @"Alexender Wilson";
@@ -155,7 +114,7 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     //set the position of the button
     button.frame = CGRectMake(cell.frame.origin.x + 60, cell.frame.origin.y + 35, 15, 10);
     [button setImage:[UIImage imageNamed:@"msg"] forState:UIControlStateNormal];
-     [button addTarget:self action:@selector(customActionPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(customActionPressed:) forControlEvents:UIControlEventTouchUpInside];
     button.backgroundColor= [UIColor clearColor];
     [cell.contentView addSubview:button];
     
@@ -167,7 +126,7 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     [button1 addTarget:self action:@selector(customActionPressed:) forControlEvents:UIControlEventTouchUpInside];
     button1.backgroundColor= [UIColor clearColor];
     [cell.contentView addSubview:button1];
-
+    
     
     UIImageView *imgview = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 30, 35)];
     imgview.backgroundColor = [UIColor clearColor];
@@ -175,11 +134,11 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     imgview.userInteractionEnabled = NO;
     imgview.layer.cornerRadius =YES;
     [imgview setImage: [UIImage imageNamed:@"avatar"]];
-
+    
     [cell.contentView addSubview:imgview];
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-
+    
     
     return cell;
 }
@@ -203,22 +162,6 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 }
 
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    // customize here the cell object before it is displayed.
-//    
-//    if ( indexPath.section == SectionTitle )
-//    {
-//        [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:1]];
-//        [cell.contentView setBackgroundColor:[UIColor clearColor]];
-//    }
-//    if ( indexPath.section == SectionImage )
-//    {
-//        [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
-//        [cell.contentView setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:1]];
-//    }
-//}
-//
 #pragma mark - SWRevealTableViewCell delegate
 
 - (void)revealTableViewCell:(SWRevealTableViewCell *)revealTableViewCell willMoveToPosition:(SWCellRevealPosition)position
@@ -247,18 +190,18 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
         case 223:
             
             [button setBackgroundImage:[UIImage imageNamed:@"msg-dark"] forState:UIControlStateNormal];
-
+            
             
             break;
-        
+            
         case 224:
             
             [button setBackgroundImage:[UIImage imageNamed:@"like-dark"] forState:UIControlStateNormal];
             
-
-
+            
+            
             break;
-
+            
         default:
             break;
     }
@@ -304,37 +247,37 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     
     if ( section == SectionTitle )
     {
-        SWCellButtonItem *item1 = [SWCellButtonItem itemWithTitle:@"Delete" handler:^(SWCellButtonItem *item, SWRevealTableViewCell *cell)
+        SWCellButtonItem *item1 = [SWCellButtonItem itemWithTitle:@"Like" handler:^(SWCellButtonItem *item, SWRevealTableViewCell *cell)
                                    {
                                        _revealingCellIndexPath = [newsfeedTable indexPathForCell:cell];
                                        [self presentDeleteActionSheetForItem:item];
                                        return NO;
                                    }];
         
-        item1.backgroundColor = [UIColor redColor];
-        item1.tintColor = [UIColor whiteColor];
+        item1.backgroundColor = [UIColor purpleColor];
+        item1.tintColor = [UIColor colorWithRed:29.0f green:44.0f blue:63.0f alpha:1];
         item1.width = 75;
         
-        SWCellButtonItem *item2 = [SWCellButtonItem itemWithTitle:@"Edit" handler:^(SWCellButtonItem *item, SWRevealTableViewCell *cell)
+        SWCellButtonItem *item2 = [SWCellButtonItem itemWithTitle:@"Comment" handler:^(SWCellButtonItem *item, SWRevealTableViewCell *cell)
                                    {
                                        _revealingCellIndexPath = [newsfeedTable indexPathForCell:cell];
                                        [self presentRenameActionSheetForItem:item];
                                        return NO;
                                    }];
         
-        item2.backgroundColor = [UIColor grayColor];
+        item2.backgroundColor = [UIColor blueColor];
         item2.tintColor = [UIColor colorWithRed:0.0f green:131.0f blue:174.0f alpha:1];
-        item2.width = 60;
+        item2.width = 75;
         
-//        SWCellButtonItem *item3 = [SWCellButtonItem itemWithTitle:@"More" handler:^(SWCellButtonItem *item, SWRevealTableViewCell *cell)
-//                                   {
-//                                       _revealingCellIndexPath = [newsfeedTable indexPathForCell:cell];
-//                                       [self presentMoreActionSheetForItem:item];
-//                                       return NO;
-//                                   }];
-//        
-//        item3.backgroundColor = [UIColor lightGrayColor];
-//        item3.width = 50;
+        //        SWCellButtonItem *item3 = [SWCellButtonItem itemWithTitle:@"More" handler:^(SWCellButtonItem *item, SWRevealTableViewCell *cell)
+        //                                   {
+        //                                       _revealingCellIndexPath = [newsfeedTable indexPathForCell:cell];
+        //                                       [self presentMoreActionSheetForItem:item];
+        //                                       return NO;
+        //                                   }];
+        //
+        //        item3.backgroundColor = [UIColor lightGrayColor];
+        //        item3.width = 50;
         
         items = @[item1,item2];
     }
@@ -506,10 +449,20 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 
 
-- (void)didReceiveMemoryWarning
-{
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

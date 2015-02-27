@@ -13,6 +13,7 @@
     
     IBOutlet UITableView *newsfeedTable;
     IBOutlet UIView *infoView;
+    IBOutlet UILabel *members,*conv,*line1,*line2;
 }
 
 -(IBAction)butt1:(id)sender;

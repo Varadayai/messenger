@@ -31,6 +31,9 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+    
+   
+    
 	[self setupView];
 }
 
@@ -91,8 +94,28 @@
 {
 	UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
 																						action:@selector(handleTapGesture:)];
+    
+    
+    self.lbl1 = [[UILabel alloc] init];
+    [self.lbl1 setFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, kInputHeight+5)];
+    self.lbl1.backgroundColor=[UIColor colorWithRed:0.0f/255.0f green:131.0f/255.0f blue:174.0f/255.0f alpha:1];
+    self.lbl1.textColor=[UIColor whiteColor];
+    self.lbl1.userInteractionEnabled=NO;
+    self.lbl1.text= @"Messaging";
+    [self.lbl1 setFont:[UIFont systemFontOfSize:17]];
+    self.lbl1.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.lbl1];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(slide:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"menu_tab.png"] forState:UIControlStateNormal];
+    button.frame = CGRectMake(11.0, 19.0, 25.0, 19.0);
+    [self.view addSubview:button];
+    
 	// Table View
-    CGRect tableFrame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height - kInputHeight);
+    CGRect tableFrame = CGRectMake(0.0f, kInputHeight+5, self.view.frame.size.width, self.view.frame.size.height - (kInputHeight+35));
 	self.tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
 	[self.tableView addGestureRecognizer:gestureRecognizer];
 	[self.tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
@@ -182,6 +205,13 @@
     [self.imageInput addSubview:self.buttonSend];
 }
 
+-(void)slide:(UIButton*)button{
+ 
+    [SIDE_MENU_CONTROLLER openLeftSideViewControllerAnimated:YES completion:nil];
+
+    
+}
+
 #pragma mark - TableView Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -266,6 +296,8 @@
 		 @"color": (color ? color: @"")
 		 }];
 	}
+    
+    [self scrollToBottomAnimated:YES];
 	
 	return cell;
 }
@@ -348,7 +380,7 @@
 - (void)handleKeyboardWillShow:(NSNotification *)notification
 {
 	[self resizeView:notification];
-	[self scrollToBottomAnimated:YES];
+	//[self scrollToBottomAnimated:YES];
 }
 
 - (void)handleKeyboardWillHide:(NSNotification *)notification
@@ -533,9 +565,9 @@
 
 - (void)reloadTableScrollingToBottom:(BOOL)scroll
 {
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
 	if (scroll) {
-		[self scrollToBottomAnimated:YES];
+		//[self scrollToBottomAnimated:NO];
 	}
 }
 

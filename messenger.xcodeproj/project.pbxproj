@@ -135,6 +135,8 @@
 		FEC386221A8B9451008E92AD /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC386201A8B9451008E92AD /* CustomTableViewCell.xib */; };
 		FEC3862A1A8BA1F8008E92AD /* SWRevealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC386291A8BA1F8008E92AD /* SWRevealTableViewCell.m */; };
 		FECF89421A8A010900C0CF89 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF89411A8A010900C0CF89 /* arrow-left.png */; };
+		FED1BB341A9F089900D10897 /* Newsfeed.m in Sources */ = {isa = PBXBuildFile; fileRef = FED1BB321A9F089900D10897 /* Newsfeed.m */; };
+		FED1BB351A9F089900D10897 /* Newsfeed.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED1BB331A9F089900D10897 /* Newsfeed.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,6 +306,9 @@
 		FEC386281A8BA1F8008E92AD /* SWRevealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealTableViewCell.h; sourceTree = "<group>"; };
 		FEC386291A8BA1F8008E92AD /* SWRevealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealTableViewCell.m; sourceTree = "<group>"; };
 		FECF89411A8A010900C0CF89 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
+		FED1BB311A9F089900D10897 /* Newsfeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Newsfeed.h; sourceTree = "<group>"; };
+		FED1BB321A9F089900D10897 /* Newsfeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Newsfeed.m; sourceTree = "<group>"; };
+		FED1BB331A9F089900D10897 /* Newsfeed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Newsfeed.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +368,7 @@
 		FE06867F1A821FA5005827E3 /* messenger */ = {
 			isa = PBXGroup;
 			children = (
+				FED1BB301A9F086400D10897 /* Newsfeed */,
 				FEC387F01A90BF3C00476302 /* Groups */,
 				FEC387EF1A90BF3000476302 /* Notifications */,
 				FEC387EE1A90BEFC00476302 /* MyProfile */,
@@ -628,6 +634,16 @@
 			name = Groups;
 			sourceTree = "<group>";
 		};
+		FED1BB301A9F086400D10897 /* Newsfeed */ = {
+			isa = PBXGroup;
+			children = (
+				FED1BB311A9F089900D10897 /* Newsfeed.h */,
+				FED1BB321A9F089900D10897 /* Newsfeed.m */,
+				FED1BB331A9F089900D10897 /* Newsfeed.xib */,
+			);
+			name = Newsfeed;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -781,6 +797,7 @@
 				FE06872F1A8223BF005827E3 /* del.png in Resources */,
 				FEB9E84D1A8A185E00B709F3 /* bubbleFlatOutgoing.png in Resources */,
 				FEB9E8631A8A185E00B709F3 /* messageBubbleBlue.png in Resources */,
+				FED1BB351A9F089900D10897 /* Newsfeed.xib in Resources */,
 				FEB9E8571A8A185E00B709F3 /* buttonSendHighlighted.png in Resources */,
 				FEC386101A8B7161008E92AD /* NewsFeedViewController.xib in Resources */,
 				FEB9E85E1A8A185E00B709F3 /* imageBarFlat@2x.png in Resources */,
@@ -832,6 +849,7 @@
 				FE06877E1A823AA7005827E3 /* Reachability.m in Sources */,
 				FEB9E8471A8A185E00B709F3 /* AMBubbleFlatAccessoryView.m in Sources */,
 				FEC3860F1A8B7161008E92AD /* NewsFeedViewController.m in Sources */,
+				FED1BB341A9F089900D10897 /* Newsfeed.m in Sources */,
 				FEBBEC691A824DFC000098C6 /* HomeViewController.m in Sources */,
 				FE06877F1A823AA7005827E3 /* Validate.m in Sources */,
 				FE06868A1A821FA5005827E3 /* AppDelegate.m in Sources */,

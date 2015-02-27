@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UITableView*	tableView;
 @property (nonatomic, strong) UITextView*	textView;
+@property (nonatomic, strong) UILabel *lbl1;
 @property (nonatomic, assign) id<AMBubbleTableDataSource> dataSource;
 @property (nonatomic, assign) id<AMBubbleTableDelegate> delegate;
 

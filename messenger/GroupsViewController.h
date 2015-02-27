@@ -21,5 +21,6 @@
 -(IBAction)buttonSel:(UIButton*)sender;
 -(IBAction)logout:(id)sender;
 -(IBAction)addMembers:(id)sender;
+-(IBAction)buttonSlide:(id)sender;
 
 @end

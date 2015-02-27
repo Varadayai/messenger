@@ -12,6 +12,7 @@
 @class Notifications;
 @class GroupsViewController;
 @class ChatViewController;
+@class Newsfeed;
 
 
 @interface MenuViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
@@ -22,6 +23,7 @@
     Notifications *notify;
     GroupsViewController *groups;
     ChatViewController *chat;
+    Newsfeed *news;
 
 }
 
