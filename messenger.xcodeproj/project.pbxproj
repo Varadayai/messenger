@@ -59,7 +59,7 @@
 		FE06872A1A8222D7005827E3 /* req-accpt.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0687041A8222D7005827E3 /* req-accpt.png */; };
 		FE06872B1A8222D7005827E3 /* req-cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0687051A8222D7005827E3 /* req-cancel.png */; };
 		FE06872C1A8222D7005827E3 /* right-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0687061A8222D7005827E3 /* right-mark.png */; };
-		FE06872D1A8222D7005827E3 /* send-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0687071A8222D7005827E3 /* send-btn.png */; };
+		FE06872D1A8222D7005827E3 /* sent-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0687071A8222D7005827E3 /* sent-btn.png */; };
 		FE06872F1A8223BF005827E3 /* del.png in Resources */ = {isa = PBXBuildFile; fileRef = FE06872E1A8223BF005827E3 /* del.png */; };
 		FE0687311A8223F2005827E3 /* login1.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0687301A8223F2005827E3 /* login1.png */; };
 		FE0687331A82241E005827E3 /* logo_home.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0687321A82241E005827E3 /* logo_home.png */; };
@@ -74,6 +74,8 @@
 		FE06877D1A823AA7005827E3 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0687771A823AA7005827E3 /* ConnectionManager.m */; };
 		FE06877E1A823AA7005827E3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0687791A823AA7005827E3 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FE06877F1A823AA7005827E3 /* Validate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06877B1A823AA7005827E3 /* Validate.m */; };
+		FE0DB9C01AA9BACE008E2AF3 /* profile_1.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0DB9BF1AA9BACE008E2AF3 /* profile_1.png */; };
+		FE0DB9C31AA9F626008E2AF3 /* DAKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0DB9C21AA9F626008E2AF3 /* DAKeyboardControl.m */; };
 		FE57263B1A828F080035D489 /* DealCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5726391A828F080035D489 /* DealCustomCell.m */; };
 		FE57263C1A828F080035D489 /* DealCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE57263A1A828F080035D489 /* DealCustomCell.xib */; };
 		FE6A6CF11A8E641A00DB42A3 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6A6CEF1A8E641A00DB42A3 /* Notifications.m */; };
@@ -207,7 +209,7 @@
 		FE0687041A8222D7005827E3 /* req-accpt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "req-accpt.png"; sourceTree = "<group>"; };
 		FE0687051A8222D7005827E3 /* req-cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "req-cancel.png"; sourceTree = "<group>"; };
 		FE0687061A8222D7005827E3 /* right-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-mark.png"; sourceTree = "<group>"; };
-		FE0687071A8222D7005827E3 /* send-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send-btn.png"; sourceTree = "<group>"; };
+		FE0687071A8222D7005827E3 /* sent-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sent-btn.png"; sourceTree = "<group>"; };
 		FE06872E1A8223BF005827E3 /* del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = del.png; sourceTree = "<group>"; };
 		FE0687301A8223F2005827E3 /* login1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login1.png; sourceTree = "<group>"; };
 		FE0687321A82241E005827E3 /* logo_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_home.png; sourceTree = "<group>"; };
@@ -228,6 +230,9 @@
 		FE0687791A823AA7005827E3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FE06877A1A823AA7005827E3 /* Validate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validate.h; sourceTree = "<group>"; };
 		FE06877B1A823AA7005827E3 /* Validate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validate.m; sourceTree = "<group>"; };
+		FE0DB9BF1AA9BACE008E2AF3 /* profile_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_1.png; sourceTree = "<group>"; };
+		FE0DB9C11AA9F625008E2AF3 /* DAKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAKeyboardControl.h; sourceTree = "<group>"; };
+		FE0DB9C21AA9F626008E2AF3 /* DAKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAKeyboardControl.m; sourceTree = "<group>"; };
 		FE5726381A828F080035D489 /* DealCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealCustomCell.h; sourceTree = "<group>"; };
 		FE5726391A828F080035D489 /* DealCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealCustomCell.m; sourceTree = "<group>"; };
 		FE57263A1A828F080035D489 /* DealCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealCustomCell.xib; sourceTree = "<group>"; };
@@ -426,6 +431,7 @@
 		FE0686AD1A822209005827E3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FE0DB9BF1AA9BACE008E2AF3 /* profile_1.png */,
 				FE0687501A8226B3005827E3 /* Signup.png */,
 				FE0686C71A822230005827E3 /* Default.png */,
 				FEBBEC6B1A825405000098C6 /* Default-iphone4.png */,
@@ -471,7 +477,7 @@
 				FE0687041A8222D7005827E3 /* req-accpt.png */,
 				FE0687051A8222D7005827E3 /* req-cancel.png */,
 				FE0687061A8222D7005827E3 /* right-mark.png */,
-				FE0687071A8222D7005827E3 /* send-btn.png */,
+				FE0687071A8222D7005827E3 /* sent-btn.png */,
 				FE0687341A822473005827E3 /* signup1.png */,
 			);
 			name = images;
@@ -627,6 +633,8 @@
 		FEC387F01A90BF3C00476302 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				FE0DB9C11AA9F625008E2AF3 /* DAKeyboardControl.h */,
+				FE0DB9C21AA9F626008E2AF3 /* DAKeyboardControl.m */,
 				FEB96CF51A8F71B20093F656 /* GroupsViewController.h */,
 				FEB96CF61A8F71B20093F656 /* GroupsViewController.m */,
 				FEB96CF71A8F71B20093F656 /* GroupsViewController.xib */,
@@ -720,7 +728,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEB9E86A1A8A185E00B709F3 /* messageBubbleHighlighted@2x.png in Resources */,
-				FE06872D1A8222D7005827E3 /* send-btn.png in Resources */,
+				FE06872D1A8222D7005827E3 /* sent-btn.png in Resources */,
 				FEB9E8641A8A185E00B709F3 /* messageBubbleBlue@2x.png in Resources */,
 				FEB9E8561A8A185E00B709F3 /* buttonSendFlat@2x.png in Resources */,
 				FEB9E8531A8A185E00B709F3 /* buttonSend.png in Resources */,
@@ -735,6 +743,7 @@
 				FEB9E8611A8A185E00B709F3 /* imageInputFlat.png in Resources */,
 				FE06872C1A8222D7005827E3 /* right-mark.png in Resources */,
 				FEB9E8511A8A185E00B709F3 /* bubbleSquareOutgoing.png in Resources */,
+				FE0DB9C01AA9BACE008E2AF3 /* profile_1.png in Resources */,
 				FEB9E86C1A8A185E00B709F3 /* messageBubbleTyping@2x.png in Resources */,
 				FE0687691A8226B3005827E3 /* Signup.png in Resources */,
 				FEB9E85D1A8A185E00B709F3 /* imageBarFlat.png in Resources */,
@@ -843,6 +852,7 @@
 				FEBBEC701A826ECC000098C6 /* PZSideMenuViewController.m in Sources */,
 				FEBBEC741A826FA8000098C6 /* RootViewController.m in Sources */,
 				FEB9E8461A8A185E00B709F3 /* AMBubbleAccessoryView.m in Sources */,
+				FE0DB9C31AA9F626008E2AF3 /* DAKeyboardControl.m in Sources */,
 				FE06877C1A823AA7005827E3 /* Config.m in Sources */,
 				FEB9E8491A8A185E00B709F3 /* AMBubbleTableCell.m in Sources */,
 				FEB9E8481A8A185E00B709F3 /* AMBubbleGlobals.m in Sources */,

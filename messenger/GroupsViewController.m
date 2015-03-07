@@ -9,6 +9,16 @@
 #import "GroupsViewController.h"
 #import "SWRevealTableViewCell.h"
 #import "LoginVC.h"
+#import "DAKeyboardControl.h"
+
+
+#import "DAKeyboardControl.h"
+
+
+
+#define kInputHeight 40.0f
+#define kLineHeight 30.0f
+#define kButtonWidth 78.0f
 
 
 @interface GroupsViewController ()<SWRevealTableViewCellDelegate,SWRevealTableViewCellDataSource,UIActionSheetDelegate>
@@ -20,6 +30,9 @@
 @end
 
 @implementation GroupsViewController
+
+BOOL toggleIsOn;
+
 
 typedef enum
 {
@@ -46,6 +59,18 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     [super viewDidLoad];
     
     _sectionTitleRowCount = 2;
+    
+    tableViewM = [[UITableView alloc] initWithFrame:CGRectMake(0.0f,
+                                                               150.0f,
+                                                               self.view.bounds.size.width,
+                                                               418.0f)];
+    tableViewM.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:tableViewM];
+    
+    tableViewM.dataSource=self;
+    tableViewM.delegate=self;
+    
+    tableViewM.hidden=YES;
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -69,36 +94,213 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 -(IBAction)addMembers:(id)sender{
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invitation" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add Members",@"Invite Members via Email",@"Invite Guests via Email", nil];
+    if(toggleIsOn){
+        
+        toolBar.hidden=YES;
+        
+        _paintView=[[UIView alloc]initWithFrame:CGRectMake(0, 45, 320, 560)];
+        [_paintView setBackgroundColor:[UIColor whiteColor]];
+        [self.view addSubview:_paintView];
+        
+        
+        UILabel *lbl2 = [[UILabel alloc] init];
+        [lbl2 setFrame:CGRectMake(18.0f, 20.0f, 20, 20)];
+        lbl2.backgroundColor=[UIColor clearColor];
+        lbl2.textColor=[UIColor colorWithRed:184.0f/255.0f green:184.0f/255.0f blue:184.0f/255.0f alpha:1];
+        lbl2.userInteractionEnabled=NO;
+        lbl2.text= @"To";
+        [lbl2 setFont:[UIFont systemFontOfSize:14]];
+        //self.lbl1.textAlignment = NSTextAlignmentCenter;
+        [_paintView addSubview:lbl2];
+        
+        
+        UITextField* textF = [[UITextField alloc] initWithFrame:CGRectMake(50, 20, 180, 20)];
+        
+        
+        textF.borderStyle = UITextBorderStyleNone;
+        textF.textColor = [UIColor colorWithRed:184.0f/255.0f green:184.0f/255.0f blue:184.0f/255.0f alpha:1];
+        textF.font = [UIFont systemFontOfSize:17];
+        textF.placeholder = @"search name";
+        textF.autocorrectionType = UITextAutocorrectionTypeNo;
+        textF.keyboardType = UIKeyboardTypeDefault;
+        textF.returnKeyType = UIReturnKeyDefault;
+        textF.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        textF.delegate = self;
+        [_paintView addSubview:textF];
+        
+        
+        // Input field
+        toolBar1 = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f,
+                                                                         self.view.bounds.size.height - 40.0f,
+                                                                         self.view.bounds.size.width,
+                                                                         40.0f)];
+        toolBar1.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+        [self.view addSubview:toolBar1];
+        
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f,
+                                                                               6.0f,
+                                                                               toolBar1.bounds.size.width - 68.0f,
+                                                                               30.0f)];
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [toolBar1 addSubview:textField];
+        
+        UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        sendButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        //[sendButton setTitle:@"Send" forState:UIControlStateNormal];
+        [sendButton setBackgroundImage:[UIImage imageNamed:@"sent-btn"] forState:UIControlStateNormal];
+        
+        sendButton.frame = CGRectMake(toolBar1.bounds.size.width - 48.0f,
+                                      6.0f,
+                                      46.0f,
+                                      30.0f);
+        [toolBar1 addSubview:sendButton];
+        
+        
+        
+        self.view.keyboardTriggerOffset = toolBar1.bounds.size.height;
+        
+        [self.view addKeyboardPanningWithFrameBasedActionHandler:^(CGRect keyboardFrameInView, BOOL opening, BOOL closing) {
+            /*
+             Try not to call "self" inside this block (retain cycle).
+             But if you do, make sure to remove DAKeyboardControl
+             when you are done with the view controller by calling:
+             [self.view removeKeyboardControl];
+             */
+            
+            
+            CGRect toolBarFrame = toolBar1.frame;
+            toolBarFrame.origin.y = keyboardFrameInView.origin.y - toolBarFrame.size.height;
+            toolBar1.frame = toolBarFrame;
+            
+            //CGRect tableViewFrame = tableView.frame;
+            // tableViewFrame.size.height = toolBarFrame.origin.y;
+            // tableView.frame = tableViewFrame;
+        } constraintBasedActionHandler:nil];
+        
+    }
+    else {
+        
+//        toolBar1.hidden=YES;
+//        toolBar.hidden=NO;
+
+
+        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+        
+        _paintView.hidden=YES;
+        
+        
+    }
     
-    [alert show];
+    toggleIsOn = !toggleIsOn;
+    
+    
+    
+ 
+
+}
+
+-(void)sendPressed2:(id)sender{
+    
+    
+    
+    
 }
 
 -(IBAction)buttonSel:(UIButton*)sender{
     
     if (sender.tag==1) {
         
-        [line1 setHidden:NO];
-        
-        [line2 setHidden:YES];
-        
-        members.textColor = [UIColor colorWithRed:0/255.f green:123/255.f blue:168/255.f alpha:1];
+        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 
-        conv.textColor = [UIColor colorWithRed:224/255.f green:224/255.f blue:224/255.f alpha:1];
+        
+        tableViewM.hidden=YES;
+        
+        memberTable.hidden=NO;
+        
+        toolBar.hidden=YES;
+        
+        
+        [line1 setHidden:YES];
+        
+        [line2 setHidden:NO];
+        
+        conv.textColor = [UIColor colorWithRed:0/255.f green:123/255.f blue:168/255.f alpha:1];
+
+        members.textColor = [UIColor colorWithRed:224/255.f green:224/255.f blue:224/255.f alpha:1];
         
         
     }
     
     else if (sender.tag==2){
         
-        [line1 setHidden:YES];
+        memberTable.hidden=YES;
         
-        [line2 setHidden:NO];
+        toolBar1.hidden=YES;
+        
+        [line1 setHidden:NO];
+        
+        [line2 setHidden:YES];
   
-        conv.textColor = [UIColor colorWithRed:0/255.f green:123/255.f blue:168/255.f alpha:1];
+        members.textColor = [UIColor colorWithRed:0/255.f green:123/255.f blue:168/255.f alpha:1];
         
-        members.textColor = [UIColor colorWithRed:224/255.f green:224/255.f blue:224/255.f alpha:1];
+        conv.textColor = [UIColor colorWithRed:224/255.f green:224/255.f blue:224/255.f alpha:1];
         
+        
+        tableViewM.hidden=NO;
+        
+        toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f,
+                                                                         self.view.bounds.size.height - 40.0f,
+                                                                         self.view.bounds.size.width,
+                                                                         40.0f)];
+        toolBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+        [self.view addSubview:toolBar];
+        
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f,
+                                                                               6.0f,
+                                                                               toolBar.bounds.size.width - 68.0f,
+                                                                               30.0f)];
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [toolBar addSubview:textField];
+        
+        UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        sendButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        //[sendButton setTitle:@"Send" forState:UIControlStateNormal];
+        [sendButton setBackgroundImage:[UIImage imageNamed:@"chat-sent"] forState:UIControlStateNormal];
+
+        sendButton.frame = CGRectMake(toolBar.bounds.size.width - 48.0f,
+                                      6.0f,
+                                      32.0f,
+                                      32.0f);
+        [toolBar addSubview:sendButton];
+        
+        
+        self.view.keyboardTriggerOffset = toolBar.bounds.size.height;
+        
+        [self.view addKeyboardPanningWithFrameBasedActionHandler:^(CGRect keyboardFrameInView, BOOL opening, BOOL closing) {
+            /*
+             Try not to call "self" inside this block (retain cycle).
+             But if you do, make sure to remove DAKeyboardControl
+             when you are done with the view controller by calling:
+             [self.view removeKeyboardControl];
+             */
+            
+            
+            CGRect toolBarFrame = toolBar.frame;
+            toolBarFrame.origin.y = keyboardFrameInView.origin.y - toolBarFrame.size.height;
+            toolBar.frame = toolBarFrame;
+            
+            CGRect tableViewFrame = tableViewM.frame;
+            tableViewFrame.size.height = toolBarFrame.origin.y;
+            tableViewM.frame = tableViewFrame;
+            
+           
+            
+        } constraintBasedActionHandler:nil];
+
+        [tableViewM reloadData]; 
         
     }
     
@@ -135,18 +337,13 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     
-    // Configure the cell...
-    //  cell.detailTextLabel.text = @"Detail text";
     
-    //    cell.textLabel.text = [NSString stringWithFormat:@"My cell content %ld", (long)indexPath.section];
-    
-    
-    UILabel *detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 15, cell.bounds.size.width-60, 15)];
+    UILabel *detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 6, cell.bounds.size.width-60, 15)];
     
     detailLabel.tag = 345345;
     detailLabel.backgroundColor = [UIColor clearColor];
     
-    detailLabel.textColor = [UIColor blackColor];
+    detailLabel.textColor = [UIColor colorWithRed:141.0/255.f green:141.0/255.f blue:141.0/255.f alpha:1];
     [detailLabel setFont:[UIFont boldSystemFontOfSize:11]];
     detailLabel.layer.shadowColor = [[UIColor whiteColor] CGColor];
     detailLabel.layer.shadowOpacity = 0.7;
@@ -165,17 +362,46 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
     
     [cell.contentView addSubview:imgview];
     
-//    UIButton   * checkBox=[UIButton buttonWithType:UIButtonTypeCustom];
-//    checkBox.tag=indexPath.row;
-//    checkBox.frame=CGRectMake(270,15, 20, 20);
-//    [cell.contentView addSubview:checkBox];
-//    [checkBox setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-//    [checkBox addTarget:self action:@selector(checkBoxClicked:) forControlEvents:UIControlEventTouchUpInside];
+    if (tableViewM.hidden==NO) {
+        
+        
+        UILabel *detailLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(45, 10, cell.bounds.size.width-100, 45)];
+        
+        detailLabel1.tag = 345346;
+        detailLabel1.backgroundColor = [UIColor clearColor];
+        
+        detailLabel1.textColor = [UIColor blackColor];
+        [detailLabel1 setFont:[UIFont boldSystemFontOfSize:10]];
+        detailLabel1.layer.shadowColor = [[UIColor whiteColor] CGColor];
+        detailLabel1.lineBreakMode = NSLineBreakByWordWrapping;
+        detailLabel1.numberOfLines = 0;
+        detailLabel1.layer.shadowOpacity = 0.7;
+        detailLabel1.layer.shouldRasterize=YES;
+        detailLabel1.text = @"UChicgo football gme versus Pacific(Ore) cancelled!";
+        [cell.contentView addSubview:detailLabel1];
+        
+        
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(280,20, 18, 16)];
+        
+        [button setBackgroundImage:[UIImage imageNamed:@"conversations_plus.png"] forState:UIControlStateNormal];
+
+        [button addTarget:self action:@selector(buttonPressedAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:button];
     
-   // [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        
+    }
     
+    tableView.allowsSelection = NO;
+
     
     return cell;
+}
+
+- (void)buttonPressedAction:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    int row = button.tag;
 }
 
 -(void)checkBoxClicked:(id)sender{
@@ -329,14 +555,14 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 - (void)presentDeleteActionSheetForItem:(SWCellButtonItem*)cellItem
 {
-    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"Delete Actions"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Cancel"
-                                            destructiveButtonTitle:@"Delete Now"
-                                                 otherButtonTitles:nil ];
-    
-    [actSheet setTag:0];
-    [actSheet showFromCellButtonItem:cellItem animated:YES];
+//    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"Delete Actions"
+//                                                          delegate:self
+//                                                 cancelButtonTitle:@"Cancel"
+//                                            destructiveButtonTitle:@"Delete Now"
+//                                                 otherButtonTitles:nil ];
+//    
+//    [actSheet setTag:0];
+//    [actSheet showFromCellButtonItem:cellItem animated:YES];
 }
 
 
@@ -349,14 +575,14 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 - (void)presentRenameActionSheetForItem:(SWCellButtonItem*)cellItem
 {
-    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"More Actions"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Cancel"
-                                            destructiveButtonTitle:nil
-                                                 otherButtonTitles:@"Action Rename", nil ];
-    
-    [actSheet setTag:1];
-    [actSheet showFromCellButtonItem:cellItem animated:YES];
+//    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"More Actions"
+//                                                          delegate:self
+//                                                 cancelButtonTitle:@"Cancel"
+//                                            destructiveButtonTitle:nil
+//                                                 otherButtonTitles:@"Action Rename", nil ];
+//    
+//    [actSheet setTag:1];
+//    [actSheet showFromCellButtonItem:cellItem animated:YES];
 }
 
 
@@ -368,14 +594,14 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 - (void)presentMoreActionSheetForItem:(SWCellButtonItem*)cellItem
 {
-    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"More Actions"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Cancel"
-                                            destructiveButtonTitle:nil
-                                                 otherButtonTitles:@"Action One", @"Action Two", @"Action Three", nil ];
-    
-    [actSheet setTag:2];
-    [actSheet showFromCellButtonItem:cellItem animated:YES];
+//    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"More Actions"
+//                                                          delegate:self
+//                                                 cancelButtonTitle:@"Cancel"
+//                                            destructiveButtonTitle:nil
+//                                                 otherButtonTitles:@"Action One", @"Action Two", @"Action Three", nil ];
+//    
+//    [actSheet setTag:2];
+//    [actSheet showFromCellButtonItem:cellItem animated:YES];
 }
 
 

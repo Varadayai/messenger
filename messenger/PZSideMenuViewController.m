@@ -65,14 +65,16 @@
 - (void)defaultConfiguration
 {
     // Default values
-    _zoomScale = 0.8f;
+    _zoomScale = .93f;
+    
     _edgeOffset = (UIOffset) {
-        .horizontal = 110.0f
+        .horizontal = 90.0f
     };
+
     _duration = kAnimationDuration;
     _shadowColor = [UIColor blackColor];
-    _shadowRadius = 10.0f;
-    _shadowOpacity = 0.4f;
+    _shadowRadius = 20.0f;
+    _shadowOpacity = 0.2f;
 }
 
 #pragma mark - View management

@@ -338,14 +338,14 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 - (void)presentDeleteActionSheetForItem:(SWCellButtonItem*)cellItem
 {
-    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"Delete Actions"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Cancel"
-                                            destructiveButtonTitle:@"Delete Now"
-                                                 otherButtonTitles:nil ];
-    
-    [actSheet setTag:0];
-    [actSheet showFromCellButtonItem:cellItem animated:YES];
+//    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"Delete Actions"
+//                                                          delegate:self
+//                                                 cancelButtonTitle:@"Cancel"
+//                                            destructiveButtonTitle:@"Delete Now"
+//                                                 otherButtonTitles:nil ];
+//    
+//    [actSheet setTag:0];
+//    [actSheet showFromCellButtonItem:cellItem animated:YES];
 }
 
 
@@ -358,14 +358,14 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 - (void)presentRenameActionSheetForItem:(SWCellButtonItem*)cellItem
 {
-    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"More Actions"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Cancel"
-                                            destructiveButtonTitle:nil
-                                                 otherButtonTitles:@"Action Rename", nil ];
-    
-    [actSheet setTag:1];
-    [actSheet showFromCellButtonItem:cellItem animated:YES];
+//    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"More Actions"
+//                                                          delegate:self
+//                                                 cancelButtonTitle:@"Cancel"
+//                                            destructiveButtonTitle:nil
+//                                                 otherButtonTitles:@"Action Rename", nil ];
+//    
+//    [actSheet setTag:1];
+//    [actSheet showFromCellButtonItem:cellItem animated:YES];
 }
 
 
@@ -377,14 +377,14 @@ static NSString *RevealCellReuseIdentifier = @"RevealCellReuseIdentifier";
 
 - (void)presentMoreActionSheetForItem:(SWCellButtonItem*)cellItem
 {
-    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"More Actions"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Cancel"
-                                            destructiveButtonTitle:nil
-                                                 otherButtonTitles:@"Action One", @"Action Two", @"Action Three", nil ];
-    
-    [actSheet setTag:2];
-    [actSheet showFromCellButtonItem:cellItem animated:YES];
+//    UIActionSheet *actSheet = [[UIActionSheet alloc] initWithTitle:@"More Actions"
+//                                                          delegate:self
+//                                                 cancelButtonTitle:@"Cancel"
+//                                            destructiveButtonTitle:nil
+//                                                 otherButtonTitles:@"Action One", @"Action Two", @"Action Three", nil ];
+//    
+//    [actSheet setTag:2];
+//    [actSheet showFromCellButtonItem:cellItem animated:YES];
 }
 
 

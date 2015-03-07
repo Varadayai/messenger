@@ -8,25 +8,41 @@
 
 #import "AMBubbleTableViewController.h"
 #import "AMBubbleTableCell.h"
+#import "DAKeyboardControl.h"
+
 
 #define kInputHeight 40.0f
 #define kLineHeight 30.0f
 #define kButtonWidth 78.0f
 
+#define kOFFSET_FOR_KEYBOARD 80.0
 
-@interface AMBubbleTableViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
+#define SCROLLVIEW_CONTENT_HEIGHT 460
+#define SCROLLVIEW_CONTENT_WIDTH  320
+
+BOOL keyboardVisible;
+
+
+
+@interface AMBubbleTableViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) NSMutableDictionary*	options;
 @property (nonatomic, strong) UIImageView*	imageInput;
 @property (nonatomic, strong) UIImageView*	imageInputBack;
 @property (nonatomic, strong) UIButton*		buttonSend;
+@property (nonatomic, strong) UIButton*		buttonSend2;
 @property (nonatomic, strong) NSDateFormatter* dateFormatter;
 @property (nonatomic, strong) UITextView*	tempTextView;
 @property (nonatomic, assign) float			previousTextFieldHeight;
 
 @end
 
+
+
 @implementation AMBubbleTableViewController
+
+BOOL toggleIsOn;
+
 
 - (void)viewDidLoad
 {
@@ -80,6 +96,9 @@
 											 selector:@selector(handleKeyboardWillHide:)
 												 name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -113,6 +132,15 @@
     [button setBackgroundImage:[UIImage imageNamed:@"menu_tab.png"] forState:UIControlStateNormal];
     button.frame = CGRectMake(11.0, 19.0, 25.0, 19.0);
     [self.view addSubview:button];
+    
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button2 addTarget:self
+               action:@selector(dialog:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button2 setBackgroundImage:[UIImage imageNamed:@"plus.png"] forState:UIControlStateNormal];
+    button2.frame = CGRectMake(280.0, 19.0, 19.0, 19.0);
+    [self.view addSubview:button2];
+
     
 	// Table View
     CGRect tableFrame = CGRectMake(0.0f, kInputHeight+5, self.view.frame.size.width, self.view.frame.size.height - (kInputHeight+35));
@@ -203,6 +231,8 @@
     [self.buttonSend addTarget:self	action:@selector(sendPressed:) forControlEvents:UIControlEventTouchUpInside];
 	
     [self.imageInput addSubview:self.buttonSend];
+    
+    toggleIsOn=YES;
 }
 
 -(void)slide:(UIButton*)button{
@@ -211,6 +241,118 @@
 
     
 }
+
+-(void)dialog:(UIButton*)button{
+    
+    
+    if(toggleIsOn){
+        
+        
+        
+        _paintView=[[UIView alloc]initWithFrame:CGRectMake(0, 45, 320, 560)];
+        [_paintView setBackgroundColor:[UIColor whiteColor]];
+        [self.view addSubview:_paintView];
+        
+        
+        UILabel *lbl2 = [[UILabel alloc] init];
+        [lbl2 setFrame:CGRectMake(18.0f, 20.0f, 20, 20)];
+        lbl2.backgroundColor=[UIColor clearColor];
+        lbl2.textColor=[UIColor colorWithRed:184.0f/255.0f green:184.0f/255.0f blue:184.0f/255.0f alpha:1];
+        lbl2.userInteractionEnabled=NO;
+        lbl2.text= @"To";
+        [lbl2 setFont:[UIFont systemFontOfSize:14]];
+        //self.lbl1.textAlignment = NSTextAlignmentCenter;
+        [_paintView addSubview:lbl2];
+
+        
+        UITextField* textF = [[UITextField alloc] initWithFrame:CGRectMake(50, 20, 180, 20)];
+        
+                            
+        textF.borderStyle = UITextBorderStyleNone;
+        textF.textColor = [UIColor colorWithRed:184.0f/255.0f green:184.0f/255.0f blue:184.0f/255.0f alpha:1];
+        textF.font = [UIFont systemFontOfSize:17];
+        textF.placeholder = @"search name";
+        textF.autocorrectionType = UITextAutocorrectionTypeNo;
+        textF.keyboardType = UIKeyboardTypeDefault;
+        textF.returnKeyType = UIReturnKeyDefault;
+        textF.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        textF.delegate = self;
+        [_paintView addSubview:textF];
+        
+        
+        // Input field
+        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f,
+                                                                         self.view.bounds.size.height - 40.0f,
+                                                                         self.view.bounds.size.width,
+                                                                         40.0f)];
+        toolBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+        [self.view addSubview:toolBar];
+        
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f,
+                                                                               6.0f,
+                                                                               toolBar.bounds.size.width - 68.0f,
+                                                                               30.0f)];
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [toolBar addSubview:textField];
+        
+        UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        sendButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        //[sendButton setTitle:@"Send" forState:UIControlStateNormal];
+        [sendButton setBackgroundImage:[UIImage imageNamed:@"sent-btn"] forState:UIControlStateNormal];
+        
+        sendButton.frame = CGRectMake(toolBar.bounds.size.width - 48.0f,
+                                      6.0f,
+                                      46.0f,
+                                      30.0f);
+        [toolBar addSubview:sendButton];
+
+        
+        
+        self.view.keyboardTriggerOffset = toolBar.bounds.size.height;
+        
+        [self.view addKeyboardPanningWithFrameBasedActionHandler:^(CGRect keyboardFrameInView, BOOL opening, BOOL closing) {
+            /*
+             Try not to call "self" inside this block (retain cycle).
+             But if you do, make sure to remove DAKeyboardControl
+             when you are done with the view controller by calling:
+             [self.view removeKeyboardControl];
+             */
+            
+            
+            CGRect toolBarFrame = toolBar.frame;
+            toolBarFrame.origin.y = keyboardFrameInView.origin.y - toolBarFrame.size.height;
+            toolBar.frame = toolBarFrame;
+            
+            //CGRect tableViewFrame = tableView.frame;
+            // tableViewFrame.size.height = toolBarFrame.origin.y;
+            // tableView.frame = tableViewFrame;
+        } constraintBasedActionHandler:nil];
+        
+    }
+    else {
+        
+    
+        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    
+        _paintView.hidden=YES;
+
+        
+    }
+    
+    toggleIsOn = !toggleIsOn;
+    
+    
+}
+
+-(void)sendPressed2:(id)sender{
+    
+    
+    
+}
+
+
 
 #pragma mark - TableView Delegate
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GroupsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
+@interface GroupsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>{
     
     IBOutlet UILabel *members,*conv,*line1,*line2;
     
@@ -16,7 +16,15 @@
     
     IBOutlet UITableView *memberTable;
     
+    UITableView *tableViewM;
+    
+    UIToolbar *toolBar,*toolBar1;
+    
+      
 }
+
+@property (nonatomic, strong) UIView *paintView;
+
 
 -(IBAction)buttonSel:(UIButton*)sender;
 -(IBAction)logout:(id)sender;
