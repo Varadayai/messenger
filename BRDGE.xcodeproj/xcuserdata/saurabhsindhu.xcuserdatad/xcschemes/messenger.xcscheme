@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FE0686751A821FA5005827E3"
-               BuildableName = "messenger.app"
-               BlueprintName = "messenger"
-               ReferencedContainer = "container:messenger.xcodeproj">
+               BuildableName = "BRDGE.app"
+               BlueprintName = "BRDGE"
+               ReferencedContainer = "container:BRDGE.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FE0686901A821FA5005827E3"
-               BuildableName = "messengerTests.xctest"
-               BlueprintName = "messengerTests"
-               ReferencedContainer = "container:messenger.xcodeproj">
+               BuildableName = "BRDGETests.xctest"
+               BlueprintName = "BRDGETests"
+               ReferencedContainer = "container:BRDGE.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FE0686751A821FA5005827E3"
-            BuildableName = "messenger.app"
-            BlueprintName = "messenger"
-            ReferencedContainer = "container:messenger.xcodeproj">
+            BuildableName = "BRDGE.app"
+            BlueprintName = "BRDGE"
+            ReferencedContainer = "container:BRDGE.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FE0686751A821FA5005827E3"
-            BuildableName = "messenger.app"
-            BlueprintName = "messenger"
-            ReferencedContainer = "container:messenger.xcodeproj">
+            BuildableName = "BRDGE.app"
+            BlueprintName = "BRDGE"
+            ReferencedContainer = "container:BRDGE.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FE0686751A821FA5005827E3"
-            BuildableName = "messenger.app"
-            BlueprintName = "messenger"
-            ReferencedContainer = "container:messenger.xcodeproj">
+            BuildableName = "BRDGE.app"
+            BlueprintName = "BRDGE"
+            ReferencedContainer = "container:BRDGE.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

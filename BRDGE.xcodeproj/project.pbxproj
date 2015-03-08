@@ -152,20 +152,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FE0686761A821FA5005827E3 /* messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0686761A821FA5005827E3 /* BRDGE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BRDGE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0686791A821FA5005827E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FE06867B1A821FA5005827E3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FE06867D1A821FA5005827E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		FE0686811A821FA5005827E3 /* messenger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "messenger-Info.plist"; sourceTree = "<group>"; };
+		FE0686811A821FA5005827E3 /* BRDGE-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BRDGE-Info.plist"; sourceTree = "<group>"; };
 		FE0686831A821FA5005827E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE0686851A821FA5005827E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FE0686871A821FA5005827E3 /* messenger-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "messenger-Prefix.pch"; sourceTree = "<group>"; };
+		FE0686871A821FA5005827E3 /* BRDGE-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BRDGE-Prefix.pch"; sourceTree = "<group>"; };
 		FE0686881A821FA5005827E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE0686891A821FA5005827E3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FE06868B1A821FA5005827E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FE0686911A821FA5005827E3 /* messengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0686911A821FA5005827E3 /* BRDGETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BRDGETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0686921A821FA5005827E3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FE06869A1A821FA5005827E3 /* messengerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "messengerTests-Info.plist"; sourceTree = "<group>"; };
+		FE06869A1A821FA5005827E3 /* BRDGETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BRDGETests-Info.plist"; sourceTree = "<group>"; };
 		FE06869C1A821FA5005827E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE06869E1A821FA5005827E3 /* messengerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messengerTests.m; sourceTree = "<group>"; };
 		FE0686A81A822060005827E3 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
@@ -353,8 +353,8 @@
 		FE0686771A821FA5005827E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FE0686761A821FA5005827E3 /* messenger.app */,
-				FE0686911A821FA5005827E3 /* messengerTests.xctest */,
+				FE0686761A821FA5005827E3 /* BRDGE.app */,
+				FE0686911A821FA5005827E3 /* BRDGETests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -402,10 +402,10 @@
 		FE0686801A821FA5005827E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE0686811A821FA5005827E3 /* messenger-Info.plist */,
+				FE0686811A821FA5005827E3 /* BRDGE-Info.plist */,
 				FE0686821A821FA5005827E3 /* InfoPlist.strings */,
 				FE0686851A821FA5005827E3 /* main.m */,
-				FE0686871A821FA5005827E3 /* messenger-Prefix.pch */,
+				FE0686871A821FA5005827E3 /* BRDGE-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 		FE0686991A821FA5005827E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE06869A1A821FA5005827E3 /* messengerTests-Info.plist */,
+				FE06869A1A821FA5005827E3 /* BRDGETests-Info.plist */,
 				FE06869B1A821FA5005827E3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -655,9 +655,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FE0686751A821FA5005827E3 /* messenger */ = {
+		FE0686751A821FA5005827E3 /* BRDGE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FE0686A21A821FA5005827E3 /* Build configuration list for PBXNativeTarget "messenger" */;
+			buildConfigurationList = FE0686A21A821FA5005827E3 /* Build configuration list for PBXNativeTarget "BRDGE" */;
 			buildPhases = (
 				FE0686721A821FA5005827E3 /* Sources */,
 				FE0686731A821FA5005827E3 /* Frameworks */,
@@ -667,14 +667,14 @@
 			);
 			dependencies = (
 			);
-			name = messenger;
+			name = BRDGE;
 			productName = messenger;
-			productReference = FE0686761A821FA5005827E3 /* messenger.app */;
+			productReference = FE0686761A821FA5005827E3 /* BRDGE.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FE0686901A821FA5005827E3 /* messengerTests */ = {
+		FE0686901A821FA5005827E3 /* BRDGETests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FE0686A51A821FA5005827E3 /* Build configuration list for PBXNativeTarget "messengerTests" */;
+			buildConfigurationList = FE0686A51A821FA5005827E3 /* Build configuration list for PBXNativeTarget "BRDGETests" */;
 			buildPhases = (
 				FE06868D1A821FA5005827E3 /* Sources */,
 				FE06868E1A821FA5005827E3 /* Frameworks */,
@@ -685,9 +685,9 @@
 			dependencies = (
 				FE0686971A821FA5005827E3 /* PBXTargetDependency */,
 			);
-			name = messengerTests;
+			name = BRDGETests;
 			productName = messengerTests;
-			productReference = FE0686911A821FA5005827E3 /* messengerTests.xctest */;
+			productReference = FE0686911A821FA5005827E3 /* BRDGETests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -704,7 +704,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FE0686711A821FA5005827E3 /* Build configuration list for PBXProject "messenger" */;
+			buildConfigurationList = FE0686711A821FA5005827E3 /* Build configuration list for PBXProject "BRDGE" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -716,8 +716,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FE0686751A821FA5005827E3 /* messenger */,
-				FE0686901A821FA5005827E3 /* messengerTests */,
+				FE0686751A821FA5005827E3 /* BRDGE */,
+				FE0686901A821FA5005827E3 /* BRDGETests */,
 			);
 		};
 /* End PBXProject section */
@@ -885,7 +885,7 @@
 /* Begin PBXTargetDependency section */
 		FE0686971A821FA5005827E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FE0686751A821FA5005827E3 /* messenger */;
+			target = FE0686751A821FA5005827E3 /* BRDGE */;
 			targetProxy = FE0686961A821FA5005827E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -985,9 +985,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "messenger/messenger-Prefix.pch";
-				INFOPLIST_FILE = "messenger/messenger-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "messenger/BRDGE-Prefix.pch";
+				INFOPLIST_FILE = "messenger/BRDGE-Info.plist";
+				PRODUCT_NAME = BRDGE;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -997,9 +997,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "messenger/messenger-Prefix.pch";
-				INFOPLIST_FILE = "messenger/messenger-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "messenger/BRDGE-Prefix.pch";
+				INFOPLIST_FILE = "messenger/BRDGE-Info.plist";
+				PRODUCT_NAME = BRDGE;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1019,8 +1019,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "messengerTests/messengerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "messengerTests/BRDGETests-Info.plist";
+				PRODUCT_NAME = BRDGETests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1037,8 +1037,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "messenger/messenger-Prefix.pch";
-				INFOPLIST_FILE = "messengerTests/messengerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "messengerTests/BRDGETests-Info.plist";
+				PRODUCT_NAME = BRDGETests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1047,7 +1047,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FE0686711A821FA5005827E3 /* Build configuration list for PBXProject "messenger" */ = {
+		FE0686711A821FA5005827E3 /* Build configuration list for PBXProject "BRDGE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FE0686A01A821FA5005827E3 /* Debug */,
@@ -1056,7 +1056,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FE0686A21A821FA5005827E3 /* Build configuration list for PBXNativeTarget "messenger" */ = {
+		FE0686A21A821FA5005827E3 /* Build configuration list for PBXNativeTarget "BRDGE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FE0686A31A821FA5005827E3 /* Debug */,
@@ -1065,7 +1065,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FE0686A51A821FA5005827E3 /* Build configuration list for PBXNativeTarget "messengerTests" */ = {
+		FE0686A51A821FA5005827E3 /* Build configuration list for PBXNativeTarget "BRDGETests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FE0686A61A821FA5005827E3 /* Debug */,
